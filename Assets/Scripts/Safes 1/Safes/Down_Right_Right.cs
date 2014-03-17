@@ -26,33 +26,43 @@ public class Down_Right_Right : MonoBehaviour
 	{
 		if(Screen.width==1366&&Screen.height==768){
 			Text_10.transform.position = new Vector2(0.835f,0.51f);
+			sum.transform.position = new Vector2 (0.389f,0.33f);
 		}
 		if(Screen.width==1280&&Screen.height==720){
 			Text_10.transform.position = new Vector2(0.835f,0.51f);
+			sum.transform.position = new Vector2 (0.389f,0.33f);
 		}
 		if(Screen.width==640&&Screen.height==480){
 			Text_10.transform.position = new Vector2(0.935f,0.514f);
+			sum.transform.position = new Vector2 (0.345f,0.33f);
 		}
 		if(Screen.width==800&&Screen.height==600){
 			Text_10.transform.position = new Vector2(0.94f,0.514f);
+			sum.transform.position = new Vector2 (0.35f,0.33f);
 		}
 		if(Screen.width==512&&Screen.height==384){
 			Text_10.transform.position = new Vector2(0.94f,0.514f);
+			sum.transform.position = new Vector2 (0.3425f,0.33f);
 		}
 		if(Screen.width==1024&&Screen.height==768){
 			Text_10.transform.position = new Vector2(0.95f,0.514f);
+			sum.transform.position = new Vector2 (0.352f,0.33f);
 		}
 		if(Screen.width==640&&Screen.height==400){
 			Text_10.transform.position = new Vector2(0.87f,0.514f);
+			sum.transform.position = new Vector2 (0.37f,0.33f);
 		}
 		if(Screen.width==1280&&Screen.height==600){
 			Text_10.transform.position = new Vector2(0.78f,0.514f);
+			sum.transform.position = new Vector2 (0.4075f,0.33f);
 		}
 		if(Screen.width==1280&&Screen.height==768){
 			Text_10.transform.position = new Vector2(0.86f,0.512f);
+			sum.transform.position = new Vector2 (0.38f,0.33f);
 		}
 		if(Screen.width==1360&&Screen.height==768){
 			Text_10.transform.position = new Vector2(0.84f,0.512f);
+			sum.transform.position = new Vector2 (0.389f,0.33f);
 		}
 	
 	
@@ -228,6 +238,8 @@ public class Down_Right_Right : MonoBehaviour
 				break;
 				
 			case eInteractiveState.Inactive:
+				if(asd.count==7||asd.x==2)
+					break;
 				animation.Play ("Open");
 				if (asd.a1 == 10 || asd.b1 == 10 || asd.c1 == 10) {
 					asd.x += 1;			
@@ -237,6 +249,7 @@ public class Down_Right_Right : MonoBehaviour
 					}
 				}
 				else{
+					
 					if(asd.c1==1){asd.sum+=asd.reward1;}
 					if(asd.c1==2){asd.sum+=asd.reward2;}
 					if(asd.c1==3){asd.sum+=asd.reward3;}
@@ -262,6 +275,11 @@ public class Down_Right_Right : MonoBehaviour
 						if(asd.b1==5){asd.sum+=asd.reward5;}
 						if(asd.b1==6){asd.sum+=asd.reward6;}
 						if(asd.b1==7){asd.sum+=asd.reward7;}
+						
+					}
+					asd.count+=1;
+					if(asd.count==7){
+						sum.text="YOU WON: "+asd.sum;
 						
 					}
 					//Debug.Log("the sum is: "+asd.sum);

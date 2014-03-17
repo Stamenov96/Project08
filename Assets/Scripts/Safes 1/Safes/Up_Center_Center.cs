@@ -26,33 +26,43 @@ public class Up_Center_Center : MonoBehaviour
 	{
 		if(Screen.width==1366&&Screen.height==768){
 			Text_3.transform.position = new Vector2(0.538f,0.685f);
+			sum.transform.position = new Vector2 (0.389f,0.33f);
 		}
 		if(Screen.width==1280&&Screen.height==720){
 			Text_3.transform.position = new Vector2(0.538f,0.685f);
+			sum.transform.position = new Vector2 (0.389f,0.33f);
 		}
 		if(Screen.width==640&&Screen.height==480){
 			Text_3.transform.position = new Vector2(0.54f,0.685f);
+			sum.transform.position = new Vector2 (0.345f,0.33f);
 		}
 		if(Screen.width==800&&Screen.height==600){
 			Text_3.transform.position = new Vector2(0.54f,0.685f);
+			sum.transform.position = new Vector2 (0.35f,0.33f);
 		}
 		if(Screen.width==512&&Screen.height==384){
 			Text_3.transform.position = new Vector2(0.54f,0.685f);
+			sum.transform.position = new Vector2 (0.3425f,0.33f);
 		}
 		if(Screen.width==1024&&Screen.height==768){
 			Text_3.transform.position = new Vector2(0.54f,0.685f);
+			sum.transform.position = new Vector2 (0.352f,0.33f);
 		}
 		if(Screen.width==640&&Screen.height==400){
 			Text_3.transform.position = new Vector2(0.538f,0.685f);
+			sum.transform.position = new Vector2 (0.37f,0.33f);
 		}
 		if(Screen.width==1280&&Screen.height==600){
 			Text_3.transform.position = new Vector2(0.53f,0.685f);
+			sum.transform.position = new Vector2 (0.4075f,0.33f);
 		}
 		if(Screen.width==1280&&Screen.height==768){
 			Text_3.transform.position = new Vector2(0.54f,0.685f);
+			sum.transform.position = new Vector2 (0.38f,0.33f);
 		}
 		if(Screen.width==1360&&Screen.height==768){
 			Text_3.transform.position = new Vector2(0.538f,0.685f);
+			sum.transform.position = new Vector2 (0.389f,0.33f);
 		}
 	
 	
@@ -124,6 +134,8 @@ public class Up_Center_Center : MonoBehaviour
 				break;
 				
 			case eInteractiveState.Inactive:
+				if(asd.count==7||asd.x==2)
+					break;
 				animation.Play ("OpenCC");
 				if (asd.a1 == 3 || asd.b1 == 3 || asd.c1 == 3) {
 					asd.x += 1;			
@@ -133,8 +145,13 @@ public class Up_Center_Center : MonoBehaviour
 					}
 				}
 				else{
-				asd.sum+=asd.reward3;
-				Debug.Log("the sum is: "+asd.sum);
+					
+					asd.sum+=asd.reward3;
+					Debug.Log("the sum is: "+asd.sum);
+					asd.count+=1;
+					if(asd.count==7){
+						sum.text="YOU WON: "+asd.sum;	
+					}
 				}
 				m_state = eInteractiveState.Active;
 									

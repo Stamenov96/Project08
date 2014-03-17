@@ -22,6 +22,7 @@ public class Down_Center_Center : MonoBehaviour
 	public int c1;
 	public int x=0;
 	public int sum = 0;
+	public int count=0;
 	public int reward1;
 	public int reward2;
 	public int reward3;
@@ -41,33 +42,43 @@ public class Down_Center_Center : MonoBehaviour
 	{
 		if(Screen.width==1366&&Screen.height==768){
 			Text_8.transform.position = new Vector2(0.538f,0.51f);
+			sum8.transform.position = new Vector2 (0.389f,0.33f);
 		}
 		if(Screen.width==1280&&Screen.height==720){
 			Text_8.transform.position = new Vector2(0.538f,0.51f);
+			sum8.transform.position = new Vector2 (0.389f,0.33f);
 		}
 		if(Screen.width==640&&Screen.height==480){
 			Text_8.transform.position = new Vector2(0.54f,0.514f);
+			sum8.transform.position = new Vector2 (0.345f,0.33f);
 		}
 		if(Screen.width==800&&Screen.height==600){
 			Text_8.transform.position = new Vector2(0.54f,0.514f);
+			sum8.transform.position = new Vector2 (0.35f,0.33f);
 		}
 		if(Screen.width==512&&Screen.height==384){
 			Text_8.transform.position = new Vector2(0.54f,0.514f);
+			sum8.transform.position = new Vector2 (0.3425f,0.33f);
 		}
 		if(Screen.width==1024&&Screen.height==768){
 			Text_8.transform.position = new Vector2(0.54f,0.514f);
+			sum8.transform.position = new Vector2 (0.352f,0.33f);
 		}
 		if(Screen.width==640&&Screen.height==400){
 			Text_8.transform.position = new Vector2(0.538f,0.514f);
+			sum8.transform.position = new Vector2 (0.37f,0.33f);
 		}
 		if(Screen.width==1280&&Screen.height==600){
 			Text_8.transform.position = new Vector2(0.53f,0.514f);
+			sum8.transform.position = new Vector2 (0.4075f,0.33f);
 		}
 		if(Screen.width==1280&&Screen.height==768){
 			Text_8.transform.position = new Vector2(0.54f,0.512f);
+			sum8.transform.position = new Vector2 (0.38f,0.33f);
 		}
 		if(Screen.width==1360&&Screen.height==768){
 			Text_8.transform.position = new Vector2(0.538f,0.512f);
+			sum8.transform.position = new Vector2 (0.389f,0.33f);
 		}
 	
 	
@@ -197,11 +208,13 @@ public class Down_Center_Center : MonoBehaviour
 
 		if (!animation.isPlaying) 
 		{
+
 			Debug.Log ("Interactive object");
 
 			switch (m_state) 
 			{
 			case eInteractiveState.Active:
+
 				animation.Play ("CloseCC");
 				m_state = eInteractiveState.Inactive;
 				Text_8.text = " ";
@@ -209,12 +222,14 @@ public class Down_Center_Center : MonoBehaviour
 				break;
 				
 			case eInteractiveState.Inactive:
+				if(count==7||x==2)
+					break;
 				animation.Play ("OpenCC");
 				if (a1 == 8 || b1 == 8 || c1 == 8) {
 					x += 1;			
 					Debug.Log ("num of X : " + x);
 					if(x==2){
-						sum8.text=""+sum;
+						sum8.text="GAME OVER: "+sum;
 					}
 				}
 				else{
@@ -225,7 +240,14 @@ public class Down_Center_Center : MonoBehaviour
 					if(a1==5){sum+=reward5;}
 					if(a1==6){sum+=reward6;}
 					if(a1==7){sum+=reward7;}
-						Debug.Log("the sum is: "+sum);
+					Debug.Log("the sum is: "+sum);
+
+					count+=1;
+					if(count==7){
+						sum8.text="YOU WON: "+sum;
+
+					}
+
 				}
 
 				

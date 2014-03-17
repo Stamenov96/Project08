@@ -27,33 +27,43 @@ public class Down_Right_Left : MonoBehaviour
 
 		if(Screen.width==1366&&Screen.height==768){
 			Text_9.transform.position = new Vector2(0.682f,0.51f);
+			sum.transform.position = new Vector2 (0.389f,0.33f);
 		}
 		if(Screen.width==1280&&Screen.height==720){
 			Text_9.transform.position = new Vector2(0.682f,0.51f);
+			sum.transform.position = new Vector2 (0.389f,0.33f);
 		}
 		if(Screen.width==640&&Screen.height==480){
 			Text_9.transform.position = new Vector2(0.74f,0.514f);
+			sum.transform.position = new Vector2 (0.345f,0.33f);
 		}
 		if(Screen.width==800&&Screen.height==600){
 			Text_9.transform.position = new Vector2(0.742f,0.514f);
+			sum.transform.position = new Vector2 (0.35f,0.33f);
 		}
 		if(Screen.width==512&&Screen.height==384){
 			Text_9.transform.position = new Vector2(0.735f,0.514f);
+			sum.transform.position = new Vector2 (0.3425f,0.33f);
 		}
 		if(Screen.width==1024&&Screen.height==768){
 			Text_9.transform.position = new Vector2(0.742f,0.514f);
+			sum.transform.position = new Vector2 (0.352f,0.33f);
 		}
 		if(Screen.width==640&&Screen.height==400){
 			Text_9.transform.position = new Vector2(0.695f,0.514f);
+			sum.transform.position = new Vector2 (0.37f,0.33f);
 		}
 		if(Screen.width==1280&&Screen.height==600){
 			Text_9.transform.position = new Vector2(0.652f,0.514f);
+			sum.transform.position = new Vector2 (0.4075f,0.33f);
 		}
 		if(Screen.width==1280&&Screen.height==768){
 			Text_9.transform.position = new Vector2(0.695f,0.512f);
+			sum.transform.position = new Vector2 (0.38f,0.33f);
 		}
 		if(Screen.width==1360&&Screen.height==768){
 			Text_9.transform.position = new Vector2(0.685f,0.512f);
+			sum.transform.position = new Vector2 (0.389f,0.33f);
 		}
 
 
@@ -149,6 +159,8 @@ public class Down_Right_Left : MonoBehaviour
 				break;
 				
 			case eInteractiveState.Inactive:
+				if(asd.count==7||asd.x==2)
+					break;
 				animation.Play ("OpenRL");
 				if (asd.a1 == 9 || asd.b1 == 9 || asd.c1 == 9) {
 					asd.x += 1;			
@@ -158,6 +170,7 @@ public class Down_Right_Left : MonoBehaviour
 					}
 				}
 				else{
+					
 					if(asd.b1==1){asd.sum+=asd.reward1;}
 					if(asd.b1==2){asd.sum+=asd.reward2;}
 					if(asd.b1==3){asd.sum+=asd.reward3;}
@@ -166,6 +179,11 @@ public class Down_Right_Left : MonoBehaviour
 					if(asd.b1==6){asd.sum+=asd.reward6;}
 					if(asd.b1==7){asd.sum+=asd.reward7;}
 					Debug.Log("the sum is: "+asd.sum);
+					asd.count+=1;
+					if(asd.count==7){
+						sum.text="YOU WON: "+asd.sum;
+						
+					}
 				}
 				m_state = eInteractiveState.Active;
 
