@@ -76,13 +76,6 @@ public class Up_Center_Center : MonoBehaviour
 	void Start()
 	{
 		m_state = eInteractiveState.Inactive;
-		/*if (asd.a1 == 3 || asd.b1 == 3 || asd.c1 == 3) {
-			asd.x += 1;			
-			Debug.Log ("num of X : " + asd.x);
-				} //else {
-			//asd.sum+=asd.reward3;
-			//Debug.Log("the sum is: "+asd.sum);
-		//}*/
 
 	}
 	
@@ -141,7 +134,8 @@ public class Up_Center_Center : MonoBehaviour
 					asd.x += 1;			
 					Debug.Log ("num of X : " + asd.x);
 					if(asd.x==2){
-						sum.text="GAME OVER: "+asd.sum;
+ 						sum.text="GAME OVER: "+asd.sum;
+						Application.LoadLevel(0);
 					}
 				}
 				else{
@@ -151,6 +145,8 @@ public class Up_Center_Center : MonoBehaviour
 					asd.count+=1;
 					if(asd.count==7){
 						sum.text="YOU WON: "+asd.sum;	
+						 
+						Application.LoadLevel(0);
 					}
 				}
 				m_state = eInteractiveState.Active;

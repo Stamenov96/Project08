@@ -123,7 +123,9 @@ public class Up_Left_Left : MonoBehaviour
 					asd.x += 1;			
 					Debug.Log ("num of X : " + asd.x);
 					if(asd.x==2){
-						sum.text="GAME OVER: "+asd.sum;
+ 						sum.text="GAME OVER: "+asd.sum;
+
+						Application.LoadLevel(0);
 					}
 				}
 				else{
@@ -133,6 +135,8 @@ public class Up_Left_Left : MonoBehaviour
 					asd.count+=1;
 					if(asd.count==7){
 						sum.text="YOU WON: "+asd.sum;
+						 
+						Application.LoadLevel(0);
 						
 					}
 				}
