@@ -1,0 +1,83 @@
+Initialize engine version: 4.3.4f1 (e444f76e01cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.3489]
+    Renderer: NVIDIA GeForce G102M   
+    Vendor:   NVIDIA
+    VRAM:     1230 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\UNITY\ver2.1\leaderboard_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\UNITY\ver2.1\leaderboard_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\UNITY\ver2.1\leaderboard_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\UNITY\ver2.1\leaderboard_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\UNITY\ver2.1\leaderboard_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\UNITY\ver2.1\leaderboard_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: E:\UNITY\ver2.1\leaderboard_Data\Managed\App42_Unity3D_SDK_2.4.dll (this message is harmless)
+Loading E:\UNITY\ver2.1\leaderboard_Data\Managed\App42_Unity3D_SDK_2.4.dll into Unity Child Domain
+- Completed reload, in  0.113 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: E:\UNITY\ver2.1\leaderboard_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 0.656738 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 451.
+Total: 1.092857 ms (FindLiveObjects: 0.051198 ms CreateObjectMapping: 0.020014 ms MarkObjects: 0.128461 ms  DeleteObjects: 0.055853 ms)
+
+result is 2000 4000 1500 5000 1000 8000 3000
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+791nai golqmoto e: 9 srednoto e: 7 nai malkoto e: 1
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Resolution is 800x600
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Interactive object
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+num of X : 1
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Interactive object
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+the sum is: 8000
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Interactive object
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+the sum is: 9500
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Interactive object
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+num of X : 2
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+UnloadTime: 2.390509 ms
+NullReferenceException: Object reference not set to an instance of an object
+  at UnityLeaderboard.Awake () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 103.
+Total: 1.236213 ms (FindLiveObjects: 0.020944 ms CreateObjectMapping: 0.019083 ms MarkObjects: 0.067954 ms  DeleteObjects: 0.412381 ms)
+
