@@ -6,7 +6,7 @@ public class Primary : MonoBehaviour {
 
 
 	public int a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,a1,b1,c1;
-	public int coinscounter;
+	//public int coinscounter;
 	int[] arrayToRandom = new int[] { 1,2,3 }; 
 
 	void Start () {

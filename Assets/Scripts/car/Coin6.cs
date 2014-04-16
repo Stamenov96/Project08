@@ -70,10 +70,7 @@ public class Coin6 : MonoBehaviour {
 				
 				animation.Play ("Open1");
 				
-				connect.coinscounter++;
-				if(connect.coinscounter==15){
-					Application.LoadLevel(4);
-				}
+ 
 				
 				m_state = eInteractiveState.Active;
 				

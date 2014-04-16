@@ -130,7 +130,6 @@ void Start()
 					if(countingy==2){
 						PlayerPrefs.SetInt("sum",(PlayerPrefs.GetInt("sum")/2));
 						sum.text="GAME OVER: "+PlayerPrefs.GetInt("sum");
-						Application.LoadLevel(3);
 					}
 				}
 				else{
@@ -139,7 +138,6 @@ void Start()
 					if(countingx==2){
 						PlayerPrefs.SetInt("sum",(PlayerPrefs.GetInt("sum")*2));
 						sum.text="YOU WON: "+PlayerPrefs.GetInt("sum");
-						Application.LoadLevel(3);
 						
 					}
 				}

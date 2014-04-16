@@ -228,7 +228,7 @@ public class Down_Center_Center : MonoBehaviour
 					Debug.Log ("num of X : " + x);
 					if(x==2){
 						sum8.text="GAME OVER: "+sum;
-						Application.LoadLevel(2);
+						  
 					}
 				}
 				else{
@@ -245,7 +245,7 @@ public class Down_Center_Center : MonoBehaviour
 					count+=1;
 					if(count==7){
 						sum8.text="YOU WON: "+sum;
-						Application.LoadLevel(2);
+						Application.LoadLevel(3);
 
 					}
 

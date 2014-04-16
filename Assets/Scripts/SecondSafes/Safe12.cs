@@ -129,7 +129,6 @@ public class Safe12 : MonoBehaviour
 						Debug.Log(""+PlayerPrefs.GetInt("sum"));
 						PlayerPrefs.SetInt("sum",(PlayerPrefs.GetInt("sum")/2));
 						sum.text="GAME OVER: "+PlayerPrefs.GetInt("sum");
-						Application.LoadLevel(3);
 					}
 				}
 				else{
@@ -138,8 +137,7 @@ public class Safe12 : MonoBehaviour
 					if(connection2.countingx==2){
 						PlayerPrefs.SetInt("sum",(PlayerPrefs.GetInt("sum")*2));
 						sum.text="YOU WON: "+PlayerPrefs.GetInt("sum");
-						
-						Application.LoadLevel(3);
+
 						
 					}
 				}

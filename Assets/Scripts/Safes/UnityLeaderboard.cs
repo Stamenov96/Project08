@@ -8,47 +8,29 @@ using System.Text.RegularExpressions;
 using com.shephertz.app42.paas.sdk.csharp;
 using com.shephertz.app42.paas.sdk.csharp.game;
 
-/*Register with App42 platform appHq.shephertz.com/register.
- *Create an app once you are on Quickstart page after registration.
- */
 
-/*Login with AppHQ Management Console from https://apphq.shephertz.com/register/app42Login
- *Go to Business Service Manager from left tab, click on Game Service and select Game.
- *Create game with App42 by clicking on Add Game button from right tab in AppHQ.
- */
 
 public class UnityLeaderboard : MonoBehaviour, App42CallBack
 {
-	//static ServiceAPI sp = null;
-	ScoreBoardService scoreBoardService = null; // Initialising ScoreBoard Service.
+	ScoreBoardService scoreBoardService = null; 
 	Constants cons = new Constants ();
 	public string success, columnName, rankersBox, saveBox, txt_user, errorLable, box, txt_score, playerScore, playerName, playerRank;
 	public int txt_max;
 	public bool saveButton, leaderBoardButton;
 
-//	public GameObject otherGameObject;/
-//	private Down_Center_Center asd;/
-//		void Awake()
-//	{
-	//	//asd = otherGameObject.GetComponent<Down_Center_Center> ();
-	//	asd = otherGameObject.GetComponent<Down_Center_Center> ();
-//	}
-//	#if UNITY_EDITOR
+
 	public static bool Validator (object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
 	{return true;}
-//	#endif
+
 	void Start ()
 	{
-//		#if UNITY_EDITOR
 		ServicePointManager.ServerCertificateValidationCallback = Validator;
-//		#endif
-		//sp = new ServiceAPI (cons.apiKey, cons.secretKey);
 		App42API.Initialize(cons.apiKey, cons.secretKey);
-		//Debug.Log ("asd.sum: " + asd.sum);
 	}
 	
 	void OnGUI ()
 	{   
+
 		// For Setting Up ResponseBox.
 		GUI.Box (new Rect (450, 40, 250, 200), box);
 		GUI.Label (new Rect (470, 50, 200, 200), columnName);
@@ -63,16 +45,11 @@ public class UnityLeaderboard : MonoBehaviour, App42CallBack
 
 		// Label For EXCEPTION Message .
 		GUI.Label (new Rect (250, 250, 700, 400), errorLable);
-		
-		//======================================================================================
-		//---------------------------- Saving User Score.---------------------------------------
-		//======================================================================================
+
+		//Saving User Score
 		GUI.Label (new Rect (20, 40, 200, 20), "User Name");
 		txt_user = GUI.TextField (new Rect (100, 40, 200, 20), txt_user);
-		GUI.Label (new Rect (20, 70, 200, 20), "Sco8re");
-		//txt_score = Convert.ToString (asd.sum);
-		//txt_score = GUI.TextField (new Rect (100, 70, 200, 20), txt_score, 6);
-		//txt_score = Regex.Replace (txt_score, @"[^0-9]", "");
+		GUI.Label (new Rect (20, 70, 200, 20), "Score");
 		GUI.Label (new Rect (100, 70, 200, 20), Convert.ToString(PlayerPrefs.GetInt ("sum")));
 		txt_score = Convert.ToString (PlayerPrefs.GetInt ("sum"));
 
@@ -109,17 +86,15 @@ public class UnityLeaderboard : MonoBehaviour, App42CallBack
 			scoreBoardService.SaveUserScore (cons.gameName, userName, score, this);
 			saveButton = true;
 		}
-		
-		//=======================================================================================
-		//---------------------------Getting Top N Rankers.--------------------------------------
-		//=======================================================================================
-		GUI.Label (new Rect (850, 40, 200, 20), "Game Name Is :");
-		GUI.Label (new Rect (950, 41, 200, 20), cons.gameName);
-		GUI.Label (new Rect (850, 70, 200, 20), "Select Max No.");
+
+		//Getting Top 10 Rankers
+		//GUI.Label (new Rect (850, 40, 200, 20), "Game Name Is :");
+		//GUI.Label (new Rect (950, 41, 200, 20), cons.gameName);
+		//GUI.Label (new Rect (850, 70, 200, 20), "Select Max No.");
 		txt_max = 10;
-		GUI.Label (new Rect (1050, 70, 200, 20), txt_max.ToString ());
+		//GUI.Label (new Rect (1050, 70, 200, 20), txt_max.ToString ());
 		
-		if (GUI.Button (new Rect (860, 100, 200, 50), "GetTop N Rankers")) {
+		if (GUI.Button (new Rect (100, 170, 200, 50), "GetTop 10 Rankers")) {
 			// Clearing Data From Response Box. 
 			success = "";
 			playerRank = "";
@@ -127,11 +102,6 @@ public class UnityLeaderboard : MonoBehaviour, App42CallBack
 			playerScore = "";
 			box = "";
 			errorLable = "";
-			
-			if (txt_max == 0) {
-				box = "Max Must Be Greater Than Zero: ";
-				return;
-			}
 
 			scoreBoardService = App42API.BuildScoreBoardService (); // Initializing scoreBoardService.
 			int max = txt_max;	// Maximum Number Of TOP RANKERS.
@@ -144,6 +114,9 @@ public class UnityLeaderboard : MonoBehaviour, App42CallBack
 			scoreBoardService.GetTopNRankers (cons.gameName, max, this);
 			leaderBoardButton = true;
 		}
+
+		if (GUI.Button (new Rect (100, 250, 200, 50), "Main Menu"))
+			Application.LoadLevel (0);
 		
 	}
 	
