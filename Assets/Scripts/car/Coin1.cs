@@ -94,7 +94,7 @@ public class Coin1 : MonoBehaviour {
 					connect1.steps_p2+=PlayerPrefs.GetInt("steps");
 					Debug.Log("Steps2"+connect1.steps_p2);
 					if(connect1.steps_p2>=5){
-						Win.text=PlayerPrefs.GetString("CurrentMover")+ " win!";
+						Win.text=PlayerPrefs.GetString("Player2Name")+ " win!";
 					}
 				}
 				if(connect.a==3){
@@ -103,7 +103,7 @@ public class Coin1 : MonoBehaviour {
 					connect1.steps_p3+=PlayerPrefs.GetInt("steps");
 					Debug.Log("Steps3"+connect1.steps_p3);
 					if(connect1.steps_p3>=5){
-						Win.text=PlayerPrefs.GetString("CurrentMover")+ " win!";
+						Win.text=PlayerPrefs.GetString("Player3Name")+ " win!";
 					}
 				}
 

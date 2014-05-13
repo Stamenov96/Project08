@@ -29,6 +29,9 @@ public class Steps : MonoBehaviour {
 	public GameObject Primary;
 	private Primary connectPrimary;
 
+	public GameObject MCC;
+	private MainCameraCoins connectMainCam;
+
 
 	void Start(){
 
@@ -41,29 +44,31 @@ public class Steps : MonoBehaviour {
 	{
 		connect = otherGameObject.GetComponent<Open1> ();
 		connectPrimary = Primary.GetComponent<Primary> ();
+		connectMainCam = MCC.GetComponent<MainCameraCoins> ();
 	}
 
 	void OnGUI() {
-	//	PlayerPrefs.SetInt ("steps", 0);
-	if (isButtonsVisible) {
-						if (GUI.Button (new Rect (540, 150, 128, 32), "1")) {
-								PlayerPrefs.SetInt ("steps", 1);
-								isButtonsVisible=false;
-								movement=false;
-								movement2=false;
-								movement3=false;			
-			}
-						if (GUI.Button (new Rect (670, 150, 128, 32), "2")) {
+				//	PlayerPrefs.SetInt ("steps", 0);
+				if (connectMainCam.save==1) {
+						if (isButtonsVisible) {
+				if (GUI.Button (new Rect (((Screen.width * (1f/4.5f))),Screen.height * (1f/6f),Screen.width * (1f/4f), Screen.height * (1f/20f)), "1")) {
+										PlayerPrefs.SetInt ("steps", 1);
+										isButtonsVisible = false;
+										movement = false;
+										movement2 = false;
+										movement3 = false;			
+								}
+				if (GUI.Button (new Rect (((Screen.width * (1f/4.5f))+Screen.width*(1f/4f)),Screen.height * (1f/6f),Screen.width * (1f/4f), Screen.height * (1f/20f)), "2")) {
 
-								PlayerPrefs.SetInt ("steps", 2);
-								isButtonsVisible=false;
-								movement=false;
-								movement2=false;
-								movement3=false;
+										PlayerPrefs.SetInt ("steps", 2);
+										isButtonsVisible = false;
+										movement = false;
+										movement2 = false;
+										movement3 = false;
+								}
 						}
 				}
-	}
-
+		}
 /*	void Main(){
 
 		if (PlayerPrefs.GetString ("CurrentMover") == "Player1") {

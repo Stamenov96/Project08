@@ -87,12 +87,18 @@ public class Coin9 : MonoBehaviour {
 					PlayerPrefs.SetString("CurrentMover","Player2");
 					connect1.steps_p2+=PlayerPrefs.GetInt("steps");
 					Debug.Log("Steps2"+connect1.steps_p2);
+					if(connect1.steps_p2>=5){
+						Win.text=PlayerPrefs.GetString("Player2Name")+ " win!";
+					}
 				}
 				if(connect.i==3){
 					connect1.movement3=true;
 					PlayerPrefs.SetString("CurrentMover","Player3");
 					connect1.steps_p3+=PlayerPrefs.GetInt("steps");
 					Debug.Log("Steps3"+connect1.steps_p3);
+					if(connect1.steps_p3>=5){
+						Win.text=PlayerPrefs.GetString("Player3Name")+ " win!";
+					}
 				}
 				Debug.Log("CurRrent Mover .. : "+PlayerPrefs.GetString("CurrentMover")+ " steps "+PlayerPrefs.GetInt("steps"));
 				
