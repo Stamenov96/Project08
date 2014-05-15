@@ -8,6 +8,10 @@ public class Count5 : MonoBehaviour {
 	private Count4 connectto1;
 	public bool checkPrice=true;
 	public bool checkWrong=true;
+	public Material matirial1;
+	public Material matirial2;
+	public Material matirial3;
+	public GameObject cube;
 	
 	
 	public GUIText count1;
@@ -20,6 +24,7 @@ public class Count5 : MonoBehaviour {
 		a = 0;
 		connectto = otherGameObject.GetComponent<Main> ();
 		connectto1 = otherGameObject1.GetComponent<Count4> ();
+		cube.renderer.material = matirial1;
 	}
 	
 	// Update is called once per frame
@@ -41,6 +46,7 @@ public class Count5 : MonoBehaviour {
 			{
 				Debug.Log("Vqrno e e po malko ot d");
 				connectto.countDown = 0;
+				cube.renderer.material = matirial2;
 				
 				if(checkPrice){
 					connectto.price = connectto.price + 10000;
@@ -52,6 +58,7 @@ public class Count5 : MonoBehaviour {
 			{
 				Debug.Log("Vqrno e e po golqmo ot d");
 				connectto.countUp = 0;
+				cube.renderer.material = matirial2;
 				if(checkPrice){
 					connectto.price = connectto.price + 10000;
 					connectto.countUpDown++;
@@ -62,6 +69,7 @@ public class Count5 : MonoBehaviour {
 			{
 				Debug.Log("Greshno e e po malko ot d");
 				connectto.countUp = 0;
+				cube.renderer.material = matirial3;
 				if(checkWrong){
 					connectto.wrong++;
 					connectto.countUpDown++;
@@ -72,6 +80,7 @@ public class Count5 : MonoBehaviour {
 			{
 				Debug.Log("Greshno e e po golqmo ot d");
 				connectto.countDown = 0;
+				cube.renderer.material = matirial3;
 				if(checkWrong){
 					connectto.wrong++;
 					connectto.countUpDown++;

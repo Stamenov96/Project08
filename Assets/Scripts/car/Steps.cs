@@ -20,7 +20,7 @@ public class Steps : MonoBehaviour {
 
 	private bool check1 = true;
 	private bool check2 = true;
-	private bool check3 = true;
+
 
 	public GameObject otherGameObject;
 	private Open1 connect;

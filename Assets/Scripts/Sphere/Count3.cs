@@ -8,7 +8,10 @@ public class Count3 : MonoBehaviour {
 	private Count2 connectto1;
 	public bool checkPrice=true;
 	public bool checkWrong=true;
-	
+	public Material matirial1;
+	public Material matirial2;
+	public Material matirial3;
+	public GameObject cube;
 	
 	public GUIText count1;
 	
@@ -20,6 +23,7 @@ public class Count3 : MonoBehaviour {
 		a = 0;
 		connectto = otherGameObject.GetComponent<Main> ();
 		connectto1 = otherGameObject1.GetComponent<Count2> ();
+		cube.renderer.material = matirial1;
 	}
 	
 	// Update is called once per frame
@@ -41,6 +45,7 @@ public class Count3 : MonoBehaviour {
 			{
 				Debug.Log("Vqrno c e po malko ot b");
 				connectto.countDown = 0;
+				cube.renderer.material = matirial2;
 				
 				if(checkPrice){
 					connectto.price = connectto.price + 10000;
@@ -52,6 +57,7 @@ public class Count3 : MonoBehaviour {
 			{
 				Debug.Log("Vqrno c e po golqmo ot b");
 				connectto.countUp = 0;
+				cube.renderer.material = matirial2;
 				if(checkPrice){
 					connectto.price = connectto.price + 10000;
 					connectto.countUpDown++;
@@ -62,6 +68,7 @@ public class Count3 : MonoBehaviour {
 			{
 				Debug.Log("Greshno c e po malko ot b");
 				connectto.countUp = 0;
+				cube.renderer.material = matirial3;
 				if(checkWrong){
 					connectto.wrong++;
 					connectto.countUpDown++;
@@ -71,6 +78,7 @@ public class Count3 : MonoBehaviour {
 			if(connectto1.a < a && connectto.countDown == 1 && connectto.countUpDown == 3)
 			{
 				Debug.Log("Greshno c e po golqmo ot b");
+				cube.renderer.material = matirial3;
 				connectto.countDown = 0;
 				if(checkWrong){
 					connectto.wrong++;
