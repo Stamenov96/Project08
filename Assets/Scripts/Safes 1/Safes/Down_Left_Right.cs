@@ -134,7 +134,7 @@ public class Down_Left_Right : MonoBehaviour
 					if(asd.x==2){
  						sum.text="GAME OVER: "+asd.sum;
 
-						Application.LoadLevel(0);
+ 
 					}
 				}
 				else{
@@ -145,7 +145,7 @@ public class Down_Left_Right : MonoBehaviour
 					if(asd.count==7){
 						sum.text="YOU WON: "+asd.sum;
 						 
-						Application.LoadLevel(0);						
+ 						
 					}
 				}
 

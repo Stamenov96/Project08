@@ -9,7 +9,7 @@ public class fix : MonoBehaviour
 	{
 		float currentRatio = (float)Screen.width / (float)Screen.height;
 		Vector3 scale = transform.localScale;
-		scale.x *= m_NativeRatio / currentRatio;
+		scale.y *= m_NativeRatio / currentRatio;
 		transform.localScale = scale;
 	}
 	
