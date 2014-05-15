@@ -5,73 +5,81 @@ public class Count3 : MonoBehaviour {
 	public GameObject otherGameObject;
 	private Main connectto;
 	public GameObject otherGameObject1;
-	private Count2 connectto2;
+	private Count2 connectto1;
+	public bool checkPrice=true;
+	public bool checkWrong=true;
 	
 	
 	public GUIText count1;
-	int a;
-	private bool checkStop = true;
-	private bool checkPrice = true;
-	private bool checkWrong = true;
+	
+	public int a;
+	bool chekStop = true;
 	
 	// Use this for initialization
 	void Start () {
 		a = 0;
-	
 		connectto = otherGameObject.GetComponent<Main> ();
-		connectto2 = otherGameObject1.GetComponent<Count2> ();
+		connectto1 = otherGameObject1.GetComponent<Count2> ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if(checkStop)
+	void Update () {// ne mislq po-skoro ak nqkva shit-nq ot update-a
+		//Debug.Log ("Price: "+connectto.price+" Wrong: "+ connectto.wrong);
+		if (chekStop)
 			a++;
 		if (a == 50)
 			a = 1;
-
+		// do tuk sushtoto qsno 
 		count1.text = "" + a;
-		if (connectto.count == 3) {
-			checkStop = false;
+		
+		if (connectto.count == 3 && chekStop){
+			chekStop = false;
 			
-			Debug.Log ("2 is: " + connectto2.a + " 3 is: " + a);
+			Debug.Log ("2 is: " + connectto1.a + " 3 is: " + a);
 			
-			if(connectto2.a > a && connectto.countDown == 1)
+			if(connectto1.a > a && connectto.countDown == 1 && connectto.countUpDown == 3)
 			{
 				Debug.Log("Vqrno c e po malko ot b");
 				connectto.countDown = 0;
+				
 				if(checkPrice){
 					connectto.price = connectto.price + 10000;
+					connectto.countUpDown++;
 					checkPrice = false;
 				}
 			}
-			if(connectto2.a < a && connectto.countUp == 1)
+			if(connectto1.a < a && connectto.countUp == 1 && connectto.countUpDown == 3)
 			{
 				Debug.Log("Vqrno c e po golqmo ot b");
 				connectto.countUp = 0;
 				if(checkPrice){
 					connectto.price = connectto.price + 10000;
+					connectto.countUpDown++;
 					checkPrice = false;
 				}
 			}
-			if(connectto2.a > a && connectto.countUp == 1)
+			if(connectto1.a > a && connectto.countUp == 1 && connectto.countUpDown == 3)
 			{
 				Debug.Log("Greshno c e po malko ot b");
 				connectto.countUp = 0;
 				if(checkWrong){
 					connectto.wrong++;
+					connectto.countUpDown++;
 					checkWrong = false;
 				}
 			}
-			if(connectto2.a < a && connectto.countDown == 1)
+			if(connectto1.a < a && connectto.countDown == 1 && connectto.countUpDown == 3)
 			{
 				Debug.Log("Greshno c e po golqmo ot b");
 				connectto.countDown = 0;
 				if(checkWrong){
 					connectto.wrong++;
+					connectto.countUpDown++;
 					checkWrong = false;
 				}
 			}
 		}
-
+		
+		
 	}
 }

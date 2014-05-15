@@ -1,13 +1,8 @@
 fileFormatVersion: 2
-guid: 0825e65b050c29046825552850f7c21f
+guid: fc1829202bbfe634390b17df48d94dce
 MonoImporter:
   serializedVersion: 2
-  defaultReferences:
-  - skin: {fileID: 11400000, guid: adfb3816a941deb44bcd54f5680d9b0c, type: 2}
-  - Text_1: {instanceID: 0}
-  - Win: {instanceID: 0}
-  - otherGameObject: {instanceID: 0}
-  - otherGameObject1: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
