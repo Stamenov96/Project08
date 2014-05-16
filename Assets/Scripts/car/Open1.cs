@@ -30,7 +30,7 @@ public class Open1 : MonoBehaviour
 			
 			if(Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
 			{
-				Debug.Log ("hit");
+//				Debug.Log ("hit");
 				Coin1 obj1 = hit.collider.GetComponent<Coin1>();
 				if(obj1)
 				{

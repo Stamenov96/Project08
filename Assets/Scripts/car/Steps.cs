@@ -2,24 +2,29 @@
 using System.Collections;
 
 public class Steps : MonoBehaviour {
+	public GUISkin skin;
+	public GUISkin label;
 	public string steps;
+
+
+	public bool isButtonsVisible=true;
+	public bool movement=true;
+	public bool movement2 = true;
+	public bool movement3 = true;
+	public bool Coin = false;
 
 	public GUIText p1;
 	public GUIText p2;
 	public GUIText p3;
 	public GUIText CurrentPlayer;
-	public GUIText WrongChoice;
+	public GUIText Win;
 
-	public int step_p1;
-	public int steps_p1;
-	public int step_p2;
-	public int steps_p2;
-	public int step_p3;
-	public int steps_p3;
-	private int clicks;
-
-	private bool check1 = true;
-	private bool check2 = true;
+	//public int step_p1;
+	public int steps_p1=0;
+//	public int step_p2;
+	public int steps_p2=0;
+//	public int step_p3;
+	public int steps_p3=0;
 
 
 	public GameObject otherGameObject;
@@ -28,86 +33,91 @@ public class Steps : MonoBehaviour {
 	public GameObject Primary;
 	private Primary connectPrimary;
 
+	public GameObject MCC;
+	private MainCameraCoins connectMainCam;
+
+
+	void Start(){
+
+		PlayerPrefs.SetInt ("steps", 0);
+
+	}
+
 	void Awake()
 
 	{
 		connect = otherGameObject.GetComponent<Open1> ();
 		connectPrimary = Primary.GetComponent<Primary> ();
-		clicks = 0;
-		PlayerPrefs.SetString ("Steps", "0");
+		connectMainCam = MCC.GetComponent<MainCameraCoins> ();
 	}
 
 	void OnGUI() {
+				//	PlayerPrefs.SetInt ("steps", 0);
+				if (connectMainCam.save==1) {
+						if (isButtonsVisible) {
 
-		steps = GUI.TextField (new Rect (400, 150, 128, 32), steps);
-		if (GUI.Button (new Rect (540, 150, 128, 32), "Go")) {
-						PlayerPrefs.SetString ("Steps", steps);
+				GUI.skin=label;
 
+				GUI.Label (new Rect (((Screen.width * (1f/5f))),Screen.height * (1f/20f),/*Screen.width * (1f/4f), Screen.height * (1f/10f)*/700,100), "Number of steps");
 
-					if(int.Parse(steps) == 1 || int.Parse(steps) == 2)	{
-						clicks++;
-						WrongChoice.text = "";
-					}
-					else
-						WrongChoice.text = "Wrong Choice!";
-				}
-	}
+				GUI.skin=skin;
 
-	void Update() 
-	{
-						p1.text = PlayerPrefs.GetString ("Player1Name") + steps_p1;
-						p2.text = PlayerPrefs.GetString ("Player2Name") + steps_p2;
-						p3.text = PlayerPrefs.GetString ("Player3Name") + steps_p3;
-						
-					if (clicks == 0)
-						CurrentPlayer.text = PlayerPrefs.GetString ("Player1Name") + ": Chose '1' or '2' steps:";
-					if (clicks == 1)
-						CurrentPlayer.text = PlayerPrefs.GetString ("Player2Name") + ": Chose '1' or '2' steps:";
-					if (clicks == 2)
-						CurrentPlayer.text = PlayerPrefs.GetString ("Player3Name") + ": Chose '1' or '2' steps:";
-		if (check1) {
-			//if(clicks >= 0)	{
-				if(connect.OpenCoin1 == 1) {
-					
-						if(connectPrimary.a == 1) {
-							steps_p1 = steps_p1 + int.Parse(PlayerPrefs.GetString("Steps"));
+				if (GUI.Button (new Rect (((Screen.width * (1f/4.5f))),Screen.height * (1.5f/6f),Screen.width * (1f/4f), Screen.height * (1f/20f)), "1")) {
+										PlayerPrefs.SetInt ("steps", 1);
+										isButtonsVisible = false;
+										movement = false;
+										movement2 = false;
+										movement3 = false;	
+										Coin=true;
+								}
+				if (GUI.Button (new Rect (((Screen.width * (1f/4.5f))+Screen.width*(1f/4f)),Screen.height * (1.5f/6f),Screen.width * (1f/4f), Screen.height * (1f/20f)), "2")) {
+
+										PlayerPrefs.SetInt ("steps", 2);
+										isButtonsVisible = false;
+										movement = false;
+										movement2 = false;
+										movement3 = false;
+										Coin=true;
+								}
 						}
-						if(connectPrimary.a == 2) {
-							steps_p2 = steps_p2 + int.Parse(PlayerPrefs.GetString("Steps"));
-						}
-						if(connectPrimary.a == 3) {
-							steps_p3 = steps_p3 + int.Parse(PlayerPrefs.GetString("Steps"));
-						}
-			
-					}
-			check1 = false;
-		}
-		if (check2) {
-			if(connect.OpenCoin2 == 1) {
-				
-				if(connectPrimary.b == 1) {
-					steps_p1 = steps_p1 + int.Parse(PlayerPrefs.GetString("Steps"));
-				}
-				if(connectPrimary.b == 2) {
-					steps_p2 = steps_p2 + int.Parse(PlayerPrefs.GetString("Steps"));
-				}
-				if(connectPrimary.b == 3) {
-					steps_p3 = steps_p3 + int.Parse(PlayerPrefs.GetString("Steps"));
-				}
+			if(!isButtonsVisible){
+				GUI.skin=label;
+				GUI.Label (new Rect (((Screen.width * (1f/5f))),Screen.height * (1f/20f),/*Screen.width * (1f/4f), Screen.height * (1f/10f)*/700,100), "Choose a coin");
+
+
 			}
-			//	}
-			
-			
-			check2 = false;
-			check1 = true;
+
+
+				}
 		}
+/*	void Main(){
 
-		if (clicks == 3)
-						clicks = 0;
-		Debug.Log(steps_p1+" "+clicks);
+		if (PlayerPrefs.GetString ("CurrentMover") == "Player1") {
+			PlayerPrefs.GetInt("steps");
+		//	PlayerPrefs.SetInt("CurrentMoverSteps",(PlayerPrefs.GetInt("Pl1Steps")+PlayerPrefs.GetInt("steps")));
+		//	Debug.Log("ALALALAL "+PlayerPrefs.GetInt("CuttentMoverSteps"));
+			steps_p1+=PlayerPrefs.GetInt("steps");
+			Debug.Log("Steps"+steps_p1);
+		}
+		if (PlayerPrefs.GetString ("CurrentMover") == "Player2") {
+			PlayerPrefs.GetInt("steps");
+//			PlayerPrefs.SetInt("CurrentMoverSteps",(PlayerPrefs.GetInt("Pl2Steps")+PlayerPrefs.GetInt("steps")));
+//			Debug.Log("ALALALAL "+PlayerPrefs.SetInt("CurrentMoverSteps",(PlayerPrefs.GetInt("Pl2Steps")+PlayerPrefs.GetInt("steps"))));
+			steps_p2+=PlayerPrefs.GetInt("steps");
+			Debug.Log("Steps"+steps_p2);
+		}
+		if (PlayerPrefs.GetString ("CurrentMover") == "Player3") {
+			PlayerPrefs.GetInt("steps");
+//			PlayerPrefs.SetInt("CurrentMoverSteps",(PlayerPrefs.GetInt("Pl3Steps")+PlayerPrefs.GetInt("steps")));
+//			Debug.Log("ALALALAL "+PlayerPrefs.SetInt("CurrentMoverSteps",(PlayerPrefs.GetInt("Pl3Steps")+PlayerPrefs.GetInt("steps"))));
+			steps_p3+=PlayerPrefs.GetInt("steps");
+			Debug.Log("Steps"+steps_p3);
+		}
+		//	Debug.Log(PlayerPrefs.GetString ("CurrentMover")+" ... "+PlayerPrefs.GetInt("CurrentMoverSteps"));
 
-			
+
+				        
 	}
-
+*/
 
 }

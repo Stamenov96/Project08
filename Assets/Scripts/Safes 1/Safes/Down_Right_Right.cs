@@ -246,7 +246,7 @@ public class Down_Right_Right : MonoBehaviour
 					Debug.Log ("num of X : " + asd.x);
 					if(asd.x==2){
  						sum.text="GAME OVER: "+asd.sum;
-						Application.LoadLevel(0);
+ 
 					}
 				}
 				else{
@@ -266,7 +266,6 @@ public class Down_Right_Right : MonoBehaviour
 						if(asd.a1==5){asd.sum+=asd.reward5;}
 						if(asd.a1==6){asd.sum+=asd.reward6;}
 						if(asd.a1==7){asd.sum+=asd.reward7;}
-
 					}
 					if(asd.c1==9){
 						if(asd.b1==1){asd.sum+=asd.reward1;}
@@ -278,11 +277,12 @@ public class Down_Right_Right : MonoBehaviour
 						if(asd.b1==7){asd.sum+=asd.reward7;}
 						
 					}
+					PlayerPrefs.SetInt("sum",asd.sum);
 					asd.count+=1;
 					if(asd.count==7){
 						sum.text="YOU WON: "+asd.sum;
 						 
-						Application.LoadLevel(0);
+ 
 						
 					}
 					//Debug.Log("the sum is: "+asd.sum);

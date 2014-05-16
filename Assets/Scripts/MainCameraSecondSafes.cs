@@ -2,8 +2,11 @@
 using System.Collections;
 
 public class MainCameraSecondSafes : MonoBehaviour {
-
+	//public Texture buton;
 	// Use this for initialization
+	public GUISkin skin;
+	public GUISkin skinbuttons;
+
 	void Start () {
 	
 	}
@@ -13,17 +16,20 @@ public class MainCameraSecondSafes : MonoBehaviour {
 	
 	}
 	void OnGUI(){
-		//Name1 = GUI.TextField (new Rect (380,500, 128, 32), Name1);
-		if (GUI.Button (new Rect (405, 500, 130, 32), "Main Menu"))
-			Application.LoadLevel (0);
-		if (GUI.Button (new Rect (535, 500, 130, 32), "Level Coins"))
-			Application.LoadLevel (4);
-		if (GUI.Button (new Rect (665, 500, 130, 32), "Leaderboard"))
-			Application.LoadLevel (5);
-		if (GUI.Button (new Rect (795, 500, 130, 32), "Quit"))
+		GUI.skin = skinbuttons;
+		
+		if (GUI.Button(new Rect(Screen.width * (1f/7f),Screen.height * (5.5f/7f),/*Screen.width * (1f/9f), Screen.height * (1f/16f)*/150,60), "Main Menu"))
+			Application.LoadLevel ("MainMenu");
+		if (GUI.Button (new Rect (((Screen.width * (1f / 7f)) + 150), Screen.height * (5.5f / 7f), /*Screen.width * (1f / 9f), Screen.height * (1f / 16f)*/150,60), "Level Coins"))
+			Application.LoadLevel ("Car");
+		if (GUI.Button (new Rect (((Screen.width * (1f / 7f)) + 300), Screen.height * (5.5f / 7f), /*Screen.width * (1f / 12f), Screen.height * (1f / 16f)*/130, 60), "Spheres"))
+			Application.LoadLevel ("Sphere");
+		if (GUI.Button (new Rect (((Screen.width * (1f / 7f)) + 430), Screen.height * (5.5f / 7f), /*Screen.width * (1f / 8f), Screen.height * (1f / 16f)*/180,60), "Leaderboard"))
+			Application.LoadLevel ("Unity3D-Leaderboard");
+		if (GUI.Button (new Rect (((Screen.width * (1f/7f))+610),Screen.height * (5.5f/7f),/*Screen.width * (1f/12f), Screen.height * (1f/16f)*/100,60), "Quit"))
 			Application.Quit ();
+
+
+
 	}
-
-
-
 }

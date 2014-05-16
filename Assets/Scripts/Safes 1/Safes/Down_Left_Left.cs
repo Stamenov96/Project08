@@ -133,17 +133,18 @@ public class Down_Left_Left : MonoBehaviour
 					Debug.Log ("num of X : " + asd.x);
 					if(asd.x==2){
 						sum.text="GAME OVER: "+asd.sum;
-						Application.LoadLevel(0);
+ 
 					}
 				}
 				else{
 					asd.sum+=asd.reward6;
 					Debug.Log("the sum is: "+asd.sum);
+					PlayerPrefs.SetInt("sum",asd.sum);
 					asd.count+=1;
 					if(asd.count==7){
 						sum.text="YOU WON: "+asd.sum;
 					 
-						Application.LoadLevel(0);
+ 
 					}
 				}
 

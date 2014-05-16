@@ -52,6 +52,7 @@ public class Count7 : MonoBehaviour {
 					connectto.price = connectto.price + 10000;
 					connectto.countUpDown++;
 					checkPrice = false;
+					connectto.right++;
 				}
 			}
 			if(connectto1.a < a && connectto.countUp == 1 && connectto.countUpDown == 11)
@@ -63,6 +64,7 @@ public class Count7 : MonoBehaviour {
 					connectto.price = connectto.price + 10000;
 					connectto.countUpDown++;
 					checkPrice = false;
+					connectto.right++;
 				}
 			}
 			if(connectto1.a > a && connectto.countUp == 1 && connectto.countUpDown == 11)
@@ -85,6 +87,7 @@ public class Count7 : MonoBehaviour {
 					connectto.wrong++;
 					connectto.countUpDown++;
 					checkWrong = false;
+					connectto.right++;
 				}
 			}
 		}
