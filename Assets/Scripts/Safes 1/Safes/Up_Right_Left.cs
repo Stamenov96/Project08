@@ -135,7 +135,6 @@ public class Up_Right_Left : MonoBehaviour
 					
 					asd.sum+=asd.reward4;
 					Debug.Log("the sum is: "+asd.sum);
-					PlayerPrefs.SetInt("sum",asd.sum);
 					asd.count+=1;
 					if(asd.count==7){
 						sum.text="YOU WON: "+asd.sum;

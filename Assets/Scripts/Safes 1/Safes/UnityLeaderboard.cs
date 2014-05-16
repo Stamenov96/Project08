@@ -17,7 +17,6 @@ public class UnityLeaderboard : MonoBehaviour, App42CallBack
 	public string success, columnName, rankersBox, saveBox, txt_user, errorLable, box, txt_score, playerScore, playerName, playerRank;
 	public int txt_max;
 	public bool saveButton, leaderBoardButton;
-	public GUISkin leaderboard;
 
 
 	public static bool Validator (object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
@@ -31,7 +30,7 @@ public class UnityLeaderboard : MonoBehaviour, App42CallBack
 	
 	void OnGUI ()
 	{   
-		GUI.skin = leaderboard;
+
 		// For Setting Up ResponseBox.
 		GUI.Box (new Rect (450, 40, 250, 200), box);
 		GUI.Label (new Rect (470, 50, 200, 200), columnName);
@@ -48,7 +47,6 @@ public class UnityLeaderboard : MonoBehaviour, App42CallBack
 		GUI.Label (new Rect (250, 250, 700, 400), errorLable);
 
 		//Saving User Score
-
 		GUI.Label (new Rect (20, 40, 200, 20), "User Name");
 		txt_user = GUI.TextField (new Rect (100, 40, 200, 20), txt_user);
 		GUI.Label (new Rect (20, 70, 200, 20), "Score");
@@ -56,7 +54,7 @@ public class UnityLeaderboard : MonoBehaviour, App42CallBack
 		txt_score = Convert.ToString (PlayerPrefs.GetInt ("sum"));
 
 		Debug.Log (PlayerPrefs.GetInt ("sum"));
-
+		
 		if (GUI.Button (new Rect (100, 100, 200, 50), "Save User Score")) {
 			// Clearing Data From Response Box. 
 			success = "";
@@ -96,7 +94,7 @@ public class UnityLeaderboard : MonoBehaviour, App42CallBack
 		txt_max = 10;
 		//GUI.Label (new Rect (1050, 70, 200, 20), txt_max.ToString ());
 		
-		if (GUI.Button (new Rect (100, 170, 250, 50), "GetTop 10 Rankers")) {
+		if (GUI.Button (new Rect (100, 170, 200, 50), "GetTop 10 Rankers")) {
 			// Clearing Data From Response Box. 
 			success = "";
 			playerRank = "";

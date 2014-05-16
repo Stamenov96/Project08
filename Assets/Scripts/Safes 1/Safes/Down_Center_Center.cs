@@ -154,7 +154,7 @@ public class Down_Center_Center : MonoBehaviour
 				if(a1==8||b1==8||c1==8)
 				{
 					res8();
-				Text_8.text = "X";
+					Text_8.text = "X";
 					if (animation.isPlaying) 
 					{audio.PlayOneShot(openX);}
 				}
@@ -242,7 +242,6 @@ public class Down_Center_Center : MonoBehaviour
 					if(a1==6){sum+=reward6;}
 					if(a1==7){sum+=reward7;}
 					Debug.Log("the sum is: "+sum);
-					PlayerPrefs.SetInt("sum",sum);
 
 					count+=1;
 					if(count==7){
