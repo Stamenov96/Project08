@@ -3,12 +3,15 @@ using System.Collections;
 
 public class Steps : MonoBehaviour {
 	public GUISkin skin;
+	public GUISkin label;
 	public string steps;
+
 
 	public bool isButtonsVisible=true;
 	public bool movement=true;
 	public bool movement2 = true;
 	public bool movement3 = true;
+	public bool Coin = false;
 
 	public GUIText p1;
 	public GUIText p2;
@@ -52,25 +55,39 @@ public class Steps : MonoBehaviour {
 				//	PlayerPrefs.SetInt ("steps", 0);
 				if (connectMainCam.save==1) {
 						if (isButtonsVisible) {
+
+				GUI.skin=label;
+
+				GUI.Label (new Rect (((Screen.width * (1f/5f))),Screen.height * (1f/20f),/*Screen.width * (1f/4f), Screen.height * (1f/10f)*/700,100), "Number of steps");
+
 				GUI.skin=skin;
-				GUI.Label (new Rect (((Screen.width * (2.25f/6f))),Screen.height * (1f/20f),Screen.width * (1f/4f), Screen.height * (1f/10f)), "GOGOGO");
-				
-				if (GUI.Button (new Rect (((Screen.width * (1f/4.5f))),Screen.height * (1f/6f),Screen.width * (1f/4f), Screen.height * (1f/20f)), "1")) {
+
+				if (GUI.Button (new Rect (((Screen.width * (1f/4.5f))),Screen.height * (1.5f/6f),Screen.width * (1f/4f), Screen.height * (1f/20f)), "1")) {
 										PlayerPrefs.SetInt ("steps", 1);
 										isButtonsVisible = false;
 										movement = false;
 										movement2 = false;
-										movement3 = false;			
+										movement3 = false;	
+										Coin=true;
 								}
-				if (GUI.Button (new Rect (((Screen.width * (1f/4.5f))+Screen.width*(1f/4f)),Screen.height * (1f/6f),Screen.width * (1f/4f), Screen.height * (1f/20f)), "2")) {
+				if (GUI.Button (new Rect (((Screen.width * (1f/4.5f))+Screen.width*(1f/4f)),Screen.height * (1.5f/6f),Screen.width * (1f/4f), Screen.height * (1f/20f)), "2")) {
 
 										PlayerPrefs.SetInt ("steps", 2);
 										isButtonsVisible = false;
 										movement = false;
 										movement2 = false;
 										movement3 = false;
+										Coin=true;
 								}
 						}
+			if(!isButtonsVisible){
+				GUI.skin=label;
+				GUI.Label (new Rect (((Screen.width * (1f/5f))),Screen.height * (1f/20f),/*Screen.width * (1f/4f), Screen.height * (1f/10f)*/700,100), "Choose a coin");
+
+
+			}
+
+
 				}
 		}
 /*	void Main(){

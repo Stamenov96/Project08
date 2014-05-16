@@ -63,63 +63,70 @@ public class Coin1 : MonoBehaviour {
 	}
 	
 	public void PlayCoinAnimation (){
-		if (!animation.isPlaying) 
-		{
-			Debug.Log ("Interactive object");
-			open = true;
-			switch (m_state) 
-			{
-			case eInteractiveState.Active:
-				m_state = eInteractiveState.Inactive;
-				Text_1.text = " ";
-				Seconds = 1;
-				break;
+	if (connect1.Coin) {
+						if (!animation.isPlaying) {
+								Debug.Log ("Interactive object");
+								open = true;
+								switch (m_state) {
+								case eInteractiveState.Active:
+										m_state = eInteractiveState.Inactive;
+										Text_1.text = " ";
+										Seconds = 1;
+										break;
 				
-			case eInteractiveState.Inactive:
+								case eInteractiveState.Inactive:
 				
-				animation.Play ("Open1");
-				if(connect.a==1){
-					connect1.movement=true;
-					PlayerPrefs.SetString("CurrentMover","Player1");
-					connect1.steps_p1+=PlayerPrefs.GetInt("steps");
-					Debug.Log("Steps"+connect1.steps_p1);
-					if(connect1.steps_p1>=5){
-						Win.text=PlayerPrefs.GetString("Player1Name")+ " win!";
-					}
-				}
-				if(connect.a==2){
-					connect1.movement2=true;
-					PlayerPrefs.SetString("CurrentMover","Player2");
-					connect1.steps_p2+=PlayerPrefs.GetInt("steps");
-					Debug.Log("Steps2"+connect1.steps_p2);
-					if(connect1.steps_p2>=5){
-						Win.text=PlayerPrefs.GetString("Player2Name")+ " win!";
-					}
-				}
-				if(connect.a==3){
-					connect1.movement3=true;
-					PlayerPrefs.SetString("CurrentMover","Player3");
-					connect1.steps_p3+=PlayerPrefs.GetInt("steps");
-					Debug.Log("Steps3"+connect1.steps_p3);
-					if(connect1.steps_p3>=5){
-						Win.text=PlayerPrefs.GetString("Player3Name")+ " win!";
-					}
-				}
+										animation.Play ("Open1");
+										if (connect.a == 1) {
+												connect1.movement = true;
+												PlayerPrefs.SetString ("CurrentMover", "Player1");
+												connect1.steps_p1 += PlayerPrefs.GetInt ("steps");
+												Debug.Log ("Steps" + connect1.steps_p1);
+												if (connect1.steps_p1 >= 5) {
+														Win.text = PlayerPrefs.GetString ("Player1Name") + " win!";
+														connect1.Coin=false;
+														connect1.isButtonsVisible=false;
+
+												}
+										}
+										if (connect.a == 2) {
+												connect1.movement2 = true;
+												PlayerPrefs.SetString ("CurrentMover", "Player2");
+												connect1.steps_p2 += PlayerPrefs.GetInt ("steps");
+												Debug.Log ("Steps2" + connect1.steps_p2);
+												if (connect1.steps_p2 >= 5) {
+														Win.text = PlayerPrefs.GetString ("Player2Name") + " win!";
+														connect1.Coin=false;
+														connect1.isButtonsVisible=false;
+												}
+										}
+										if (connect.a == 3) {
+												connect1.movement3 = true;
+												PlayerPrefs.SetString ("CurrentMover", "Player3");
+												connect1.steps_p3 += PlayerPrefs.GetInt ("steps");
+												Debug.Log ("Steps3" + connect1.steps_p3);
+												if (connect1.steps_p3 >= 5) {
+														Win.text = PlayerPrefs.GetString ("Player3Name") + " win!";
+														connect1.Coin=false;
+														connect1.isButtonsVisible=false;
+												}
+										}
 
 			//	Debug.Log("Current Mover .. : "+PlayerPrefs.GetString("CurrentMover")+ " steps "+PlayerPrefs.GetInt("steps"));
-				connect1.isButtonsVisible=true;
+										connect1.isButtonsVisible = true;
 
 
-				m_state = eInteractiveState.Active;
+										m_state = eInteractiveState.Active;
 
-				break;
-			default:
-				break;
-			}
+										break;
+								default:
+										break;
+								}
 			
 			
-		}
-		
+						}
+			connect1.Coin=false;		
+		}	
 	}
 	
 	

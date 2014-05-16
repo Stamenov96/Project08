@@ -30,8 +30,10 @@ public class Main : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (right > 9)
-			count = 0;
+		if (right >= 9 && wrong !=0) {
+			check=3;	
+				count = 0;
+				}
 		Debug.Log (count);
 		Debug.Log ("upanddown"+countUpDown);
 
@@ -43,7 +45,7 @@ public class Main : MonoBehaviour {
 			winText.text = "You win: " + price/2;
 			PlayerPrefs.SetInt("sum",price/2);
 		}
-		if (price==100000) {
+		if (price==100000||(price==90000 && wrong==1)) {
 			winText.text = "You win: " + price;
 			PlayerPrefs.SetInt("sum",price);
 			check = 0;
